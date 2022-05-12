@@ -29,7 +29,10 @@ if(action == "--asthma"){
         d <- na.omit(d)
         e <- d[,c(1,1,3:18)]
         names(e)[2] <- "FID"
-        fwrite(d,paste(name,"_dis_raw.txt",sep=""),quote=F,sep='\t',row.names=F,na="NA")
+        fwrite(e,paste(name,"_dis_raw.txt",sep=""),quote=F,sep='\t',row.names=F,na="NA")
+        f <- e[,which(colnames(e)==traitID)]
+        print(summary(f))
+        print(sd(f))
 
         pheno <- e[,c(1,1,18)]
         names(pheno)[2] <- "IID"
@@ -46,6 +49,10 @@ if(action == "--asthma"){
         e <- d[,c(1,1,3:18)]
         names(e)[2] <- "FID"
         fwrite(e,paste(name,'_dis_raw.txt',sep=""),quote=F,sep='\t',row.names=F,na="NA")
+        
+        f <- e[,which(colnames(e)==traitID)]
+        print(summary(f))
+        print(sd(f))
         
         pheno <- e[,c(1,1,18)]
         names(pheno)[2] <- "IID"
