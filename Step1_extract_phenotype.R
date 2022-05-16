@@ -36,6 +36,7 @@ if(action == "--asthma"){
 
         pheno <- e[,c(1,1,18)]
         names(pheno)[2] <- "IID"
+        names(pheno)[3] <- paste0("int_",traitID)
         cov <- e[,c(1:16)]
         names(cov)[2] <- "IID"
 
@@ -56,6 +57,7 @@ if(action == "--asthma"){
         
         pheno <- e[,c(1,1,18)]
         names(pheno)[2] <- "IID"
+        names(pheno)[3] <- paste0("int_",traitID)
         cov <- e[,c(1:16)]
         names(cov)[2] <- "IID"
         fwrite(pheno,paste(name,'_dis.pheno',sep=""),quote=F,sep='\t',row.names=F,na="NA")
