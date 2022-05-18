@@ -127,7 +127,7 @@ info_snp_ht <- snp_match(sumstats2, map_ht)
 
 beta_inf <- snp_ldpred2_inf(corr,df_beta,h2 = h2_est)
 ind.test <- 1:nrow(G2)
-pred_inf <- big_prodVec( G2, beta_inf, ind.row = ind.test, ind.col = info_snp$`_NUM_ID_`)
+pred_inf <- big_prodVec( G2_ht, beta_inf, ind.row = ind.test, ind.col = info_snp_ht$`_NUM_ID_`)
 
 fam.order <- as.data.table(obj.bigSNP$fam)
 setnames(fam.order, c("family.ID", "sample.ID"), c("FID", "IID"))
