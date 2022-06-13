@@ -51,6 +51,8 @@ snp_readBed("QCref2.bed")
 ##    ..$ allele2     : chr [1:1141242] "A" "G" "T" "G" ...
 ##   - attr(*, "class")= chr "bigSNP"
 
+sumstats <- fread("sumstat.txt")
+
 sumstats2 <- sumstats[,c(1,3,2,5,4,9,10,12,8)]
 ## Classes ??data.table?? and 'data.frame':	1352168 obs. of  9 variables:
 ##  $ #CHROM: int  1 1 1 1 1 1 1 1 1 1 ...
