@@ -109,9 +109,6 @@ for (chr in 1:22) {
     }
 }
 
-df_beta <- info_snp[,c("beta", "beta_se", "n_eff", "_NUM_ID_")]
-ldsc <- snp_ldsc( ld, length(ld), chi2 = (df_beta$beta / df_beta$beta_se)^2, sample_size = df_beta$n_eff, blocks = NULL)
-
 
 
 
@@ -125,6 +122,9 @@ G2_ht <- snp_fastImputeSimple(G_ht)     //30min 정도 걸림
 map_ht <- obj.bigSNP$map[,-c(2:3)]
 names(map_ht) <- c("chr", "pos", "a0", "a1")
 info_snp_ht <- snp_match(sumstats2, map_ht)
+
+df_beta <- info_snp_ht[,c("beta", "beta_se", "n_eff", "_NUM_ID_")]
+ldsc <- snp_ldsc( ld, length(ld), chi2 = (df_beta$beta / df_beta$beta_se)^2, sample_size = df_beta$n_eff, blocks = NULL)
 
 
 beta_inf <- snp_ldpred2_inf(corr,df_beta,h2 = h2_est)
